@@ -26,7 +26,7 @@ public class EnemyController : MonoBehaviour
         m_rb.DOMoveY(Player.LauchPower, 0.5f);
     }
 
-    public void OffGrvity() 
+    public void OffGrvity()
     {
         m_rb.drag = 40;
     }

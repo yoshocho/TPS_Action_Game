@@ -86,22 +86,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void LateUpdate()
-    {
-        if (m_anim)
-        {
-            if (IsGrounded())
-            {
-                Vector3 velo = m_rb.velocity;
-                velo.y = 0;
-                m_anim.SetFloat("Speed", velo.magnitude);
-            }
-            else
-            {
-                m_anim.SetFloat("Speed", 0f);
-            }
-        }
-    }
+   
 
 
     void Jump()
@@ -130,7 +115,33 @@ public class PlayerController : MonoBehaviour
     void Lauch()
     {
         m_rb.DOMoveY(LauchPower, 0.5f);
-
+        if (m_anim)
+        {
+            m_anim.SetTrigger("Lauch");
+        }
         //Collider[] hitEnemy = Physics.OverlapSphere
+    }
+
+    //void UpdatePosition() 
+    //{
+    //    var 
+    //}
+
+
+    void LateUpdate()
+    {
+        if (m_anim)
+        {
+            if (IsGrounded())
+            {
+                Vector3 velo = m_rb.velocity;
+                velo.y = 0;
+                m_anim.SetFloat("Speed", velo.magnitude);
+            }
+            else
+            {
+                m_anim.SetFloat("Speed", 0f);
+            }
+        }
     }
 }
